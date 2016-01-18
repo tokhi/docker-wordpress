@@ -22,7 +22,7 @@ RUN chown -R www-data:www-data /app
 
 # Add script to create 'wordpress' DB
 ADD run.sh run.sh
-RUN chmod 755 /*.sh
+RUN chmod 755 *.sh
 
 EXPOSE 80
 CMD ["/run.sh"]
