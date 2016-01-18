@@ -1,4 +1,4 @@
-FROM centurylink/apache-php:latest
+FROM php:5.6-fpm
 MAINTAINER CenturyLink
 
 # Install packages
@@ -9,9 +9,9 @@ RUN apt-get update && \
 
 # Download Wordpress into /app
 RUN rm -fr /app && mkdir /app && \
- curl -L -O http://wordpress.org/wordpress-4.0.tar.gz && \
- tar -xzvf wordpress-4.0.tar.gz -C /app --strip-components=1 && \
- rm wordpress-4.0.tar.gz
+ curl -L -O https://wordpress.org/wordpress-3.8.3.tar.gz && \
+ tar -xzvf wordpress-3.8.3.tar.gz -C /app --strip-components=1 && \
+ rm wordpress-3.8.3.tar.gz
 
 # Add wp-config with info for Wordpress to connect to DB
 ADD wp-config.php /app/wp-config.php
